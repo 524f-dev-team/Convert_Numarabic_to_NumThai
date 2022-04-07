@@ -1,13 +1,10 @@
-REP = {"0":"๐", "1":"๑", "2":"๒", "3":"๓", "4":"๔", "5":"๕", "6":"๖", "7":"๗", "8":"๘", "9":"๙"}
+import pandas as pd
 
-filename = "data.csv"
-fileout = "out.csv"
-output = ""
-with open(filename, "r", encoding="utf-8") as f:
-	for line in f:
-		for chr in REP:
-			line = line.replace(chr, REP[chr]) 
-		output += line
+REP = {0: "๐", 1: "๑", 2: "๒", "3": "๓", 4: "๔",
+       5: "๕", 6: "๖", 7: "๗", 8: "๘", 9: "๙"}
 
-with open(fileout, "w", encoding="utf-8") as f:
-	f.write(output)
+df = pd.read_excel('test.xlsx', header=None)
+df.replace(REP, regex=True, inplace=True)
+
+# print(df)
+df.to_excel('out1.xlsx', index=False, header=False)
