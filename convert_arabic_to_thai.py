@@ -11,4 +11,3 @@ def convert(x):
     df.to_excel('out1.xlsx', index=False, header=False)
 
 
-convert('data.xlsx')
