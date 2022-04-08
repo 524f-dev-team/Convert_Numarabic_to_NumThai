@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from convert_arabic_to_thai import convert
 
 
 app = Flask(__name__)
@@ -16,6 +17,7 @@ def uploader():
         f.save('upload/' + f.filename)
         return 'uploaded success'
 
+convert()
 
 if __name__ == '__main__':
     app.run(debug=True)
